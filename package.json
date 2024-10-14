@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "serve": "nuxi generate && serve .output/public -l 4000"
+    "serve": "nuxi generate && npx serve .output/public -l 4000"
   },
   "dependencies": {
     "@stripe/stripe-js": "^4.8.0",
@@ -24,8 +24,7 @@
     "nuxt": "^3.13.2",
     "nuxt-graphql-client": "^0.2.36",
     "prettier": "^3.3.3",
-    "woonuxt-settings": "^1.0.61",
-    "serve": "^14.2.3"
+    "woonuxt-settings": "^1.0.61"
   },
   "overrides": {
     "sharp": "0.32.6"
