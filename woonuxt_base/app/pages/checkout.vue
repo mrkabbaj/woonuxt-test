@@ -25,27 +25,27 @@ onBeforeMount(async () => {
 const payNow = async () => {
   buttonText.value = t('messages.general.processing');
 
-  const { stripePaymentIntent } = await GqlGetStripePaymentIntent();
-  const clientSecret = stripePaymentIntent?.clientSecret || '';
+  //const { stripePaymentIntent } = await GqlGetStripePaymentIntent();
+  //const clientSecret = stripePaymentIntent?.clientSecret || '';
 
-  try {
-    if (orderInput.value.paymentMethod.id === 'stripe' && stripe && elements.value) {
-      const cardElement = elements.value.getElement('card') as StripeCardElement;
-      const { setupIntent } = await stripe.confirmCardSetup(clientSecret, { payment_method: { card: cardElement } });
-      const { source } = await stripe.createSource(cardElement as CreateSourceData);
+  // try {
+  //   if (orderInput.value.paymentMethod.id === 'stripe' && stripe && elements.value) {
+  //     const cardElement = elements.value.getElement('card') as StripeCardElement;
+  //     const { setupIntent } = await stripe.confirmCardSetup(clientSecret, { payment_method: { card: cardElement } });
+  //     const { source } = await stripe.createSource(cardElement as CreateSourceData);
 
-      if (source) orderInput.value.metaData.push({ key: '_stripe_source_id', value: source.id });
-      if (setupIntent) orderInput.value.metaData.push({ key: '_stripe_intent_id', value: setupIntent.id });
+  //     if (source) orderInput.value.metaData.push({ key: '_stripe_source_id', value: source.id });
+  //     if (setupIntent) orderInput.value.metaData.push({ key: '_stripe_intent_id', value: setupIntent.id });
 
-      isPaid.value = setupIntent?.status === 'succeeded' || false;
-      orderInput.value.transactionId = source?.created?.toString() || new Date().getTime().toString();
-    }
-  } catch (error) {
-    console.error(error);
-    buttonText.value = t('messages.shop.placeOrder');
-  }
+  //     isPaid.value = setupIntent?.status === 'succeeded' || false;
+  //     orderInput.value.transactionId = source?.created?.toString() || new Date().getTime().toString();
+  //   }
+  // } catch (error) {
+  //   console.error(error);
+  //   buttonText.value = t('messages.shop.placeOrder');
+  // }
 
-  proccessCheckout(isPaid.value);
+  proccessCheckout(false);
 };
 
 const handleStripeElement = (stripeElements: StripeElements): void => {
