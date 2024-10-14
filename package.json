@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "start": "serve .output/public -l 4000",
-    "serve": "nuxi generate && serve .output/public -l 4000"
+    "serve": "nuxi generate"
   },
   "dependencies": {
     "@stripe/stripe-js": "^4.8.0",
