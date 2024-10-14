@@ -8,12 +8,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "serve": "nuxi generate && npx serve .output/public -l 4000"
+    "start": "serve .output/public -l 4000",
+    "serve": "nuxi generate && serve .output/public -l 4000"
   },
   "dependencies": {
     "@stripe/stripe-js": "^4.8.0",
     "@vueform/slider": "^2.1.10",
-    "@vueuse/core": "^11.1.0"
+    "@vueuse/core": "^11.1.0",
+    "serve": "^14.2.3"
   },
   "devDependencies": {
     "@nuxt/icon": "^1.5.5",
